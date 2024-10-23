@@ -8,12 +8,12 @@
 [![Paper](https://img.shields.io/badge/Paper-Arvix%20Link-green)]()
 
 
-### Overview
+## Overview
 Current Diffusion Language Models (DLMs) have been studied at a smaller scale compared to their autoregressive (AR) counterparts and lack fair comparison on language modeling benchmarks. Additionally, training diffusion models from scratch at scale remains challenging. We propose adapting existing AR models to build text diffusion models. We demonstrate connections between AR and diffusion modeling objectives and introduce a simple continual pre-training approach for training diffusion models.
 
 Through systematic evaluation on language modeling, reasoning, and commonsense benchmarks, we show that we can convert AR models ranging from 127M to 7B parameters (GPT2 and LLaMA) into diffusion models **DiffuGPT** and **DiffuLLaMA**, using less than 200B tokens for training. Here we open-source adaptation code, efficient fine-tuning scripts, and evaluation toolkits.
 
-### Setup
+### 📖 Setup
 Basic environments:
 ```bash
 python 3.11
@@ -27,9 +27,7 @@ pip install flash-attn==2.6.3 --no-build-isolation
 ```
 Flash-attention is not required, but we suggest to use for fast training/inference.
 For training and finetuning, we provide our customed [LLaMA-Factory](https://github.com/hiyouga/LLaMA-Factory) based on `0.8.4.dev0`.
-```bash
-pip install -r LLaMA-Factory/requirements.txt
-pip install flash-attn==2.6.3 --no-build-isolation
+
 ```bash
 cd LLaMA-Factory
 pip install -e ".[torch,metrics]"
@@ -69,8 +67,8 @@ python inf_diffullama.py --model_name diffusionfamily/diffullama  --flash_attn f
 
 > 📌 Note: For `base_model_name` here, we will not download the original model but only use their config. For DiffuLLaMA, we support three types of attention: `eager`, `sdpa`, `flash_attention_2`. The output log can be seen at `./example_output/`.
 
-### Adaptation Training
-1. Prepare the data. 
+### 💪 Adaptation Training
+#### Prepare the data. 
 
 We use pre-training corpus from [FineWeb](https://huggingface.co/datasets/HuggingFaceFW/fineweb), [TinyLLaMA](https://github.com/jzhang38/TinyLlama).
 
@@ -92,7 +90,7 @@ We suggest to pre-tokenize the data, considering the training speed. Example: `L
 
 Considering the training efficiency, we choose not to use LLaMA-Factory for 7B pre-training. For DiffuLLaMA, please refer to `DiffuLLaMA-training`.
 
-2. Start Training.
+#### Start Training.
 Use `llamafactory-cli` to start training, all configs are listed in `LLaMA-Factory/examples/`. If you want to use ZeRO, please install `deepspeed==0.15.0`.
 ```bash
 cd LLaMA-Factory
@@ -104,14 +102,14 @@ export WANDB_API_KEY=yourkey
 FORCE_TORCHRUN=1 llamafactory-cli train examples/train_full/gpt2_full_ddm.yaml
 ```
 
-3. Inference.
+#### Inference.
 You can do unconditional generation for adapted diffusion language models.
 ```bash
 FORCE_TORCHRUN=1 llamafactory-cli train examples/inference/gpt2_full_ddm-inf.yaml
 ```
 We can set sampling parameters using `logits_temp` (top-k temperature) and `diffusion_steps` (decoding steps).
 
-### Finetuning
+### ⏳ Finetuning
 For DiffuGPT and DiffuLLaMA, we can finetune them to achieve better downstream tasks. For finetuning setting, please use `stage: ddm-sft` instead of `stage: ddm` for pre-training. For `ddm-sft`, we use the way of [DiffuSeq](https://github.com/Shark-NLP/DiffuSeq) to do the diffusion finetuning.
 
 An example of DiffuGPT training config is in `examples/train_full/gpt2_full_ddm-sft.yaml`. We explain some keywords:
@@ -140,17 +138,17 @@ adapter_name_or_path: output/llama2-ddm-gsm-v3/checkpoint-64000 # the path to sa
 
 > 📌 Note: If you skip the adapation training and choose to use our released checkpoint to do the finetuning, please specify `checkpoint_dir` to the huggingface cache directory to these checkpoints, or using huggingface cli to download checkpoints to a local directory: `huggingface-cli download model-name --local-dir /a-local-path/`.
 
-### Evaluation
+### 📏 Evaluation
 - will update soon
 
-### Acknowledgements
+### 🙇 Acknowledgements
 We sincerely appreciate the following people (works) for DiffuLLaMA:
 - This work is built upon the [LLaMA2](https://ai.meta.com/llama) and GPT2 as the pre-trained models. We also use pre-training corpus from [FineWeb](https://huggingface.co/datasets/HuggingFaceFW/fineweb), [TinyLLaMA](https://github.com/jzhang38/TinyLlama).
 - We implement training and LoRA tuning based on [LLaMAFactory](https://github.com/hiyouga/LLaMA-Factory).
 - We thank [Tianxiao Shen](https://shentianxiao.github.io/) for discussion in the early stage of this project.
 - We thank [Yu Zhang](https://github.com/yzhangcs) for engineering discussion on this work.
 
-### Citation
+## Citation
 ```
 @misc{
       archivePrefix={arXiv},
