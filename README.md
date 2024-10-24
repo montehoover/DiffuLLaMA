@@ -5,13 +5,20 @@
 # DiffuLLaMA & DiffuGPT: Scaling Diffusion Language Models
 
 [![Huggingface Models](https://img.shields.io/badge/Models-Huggingface%20Models-bron)](https://huggingface.co/diffusionfamily)
-[![Paper](https://img.shields.io/badge/Paper-Arvix%20Link-green)]()
+[![Paper](https://img.shields.io/badge/Paper-Arvix%20Link-green)](https://arxiv.org/abs/2410.17891)
 
 
 ## Overview
 Current Diffusion Language Models (DLMs) have been studied at a smaller scale compared to their autoregressive (AR) counterparts and lack fair comparison on language modeling benchmarks. Additionally, training diffusion models from scratch at scale remains challenging. We propose adapting existing AR models to build text diffusion models. We demonstrate connections between AR and diffusion modeling objectives and introduce a simple continual pre-training approach for training diffusion models.
 
 Through systematic evaluation on language modeling, reasoning, and commonsense benchmarks, we show that we can convert AR models ranging from 127M to 7B parameters (GPT2 and LLaMA) into diffusion models **DiffuGPT** and **DiffuLLaMA**, using less than 200B tokens for training. Here we open-source adaptation code, efficient fine-tuning scripts, and evaluation toolkits.
+
+<p align="center" width="100%">
+<img src="assets/overview.png" alt="overview" style="width: 100%; min-width: 300px; display: block; margin: auto;">
+</p>
+<p align = "center">
+The overview of adaptation process.
+</p>
 
 ### 📖 Setup
 Basic environments:
@@ -150,9 +157,14 @@ We sincerely appreciate the following people (works) for DiffuLLaMA:
 
 ## Citation
 ```
-@misc{
+@misc{gong2024scalingdiffusionlm,
+      title={Scaling Diffusion Language Models via Adaptation from Autoregressive Models}, 
+      author={Shansan Gong and Shivam Agarwal and Yizhe Zhang and Jiacheng Ye and Lin Zheng and Mukai Li and Chenxin An and Peilin Zhao and Wei Bi and Jiawei Han and Hao Peng and Lingpeng Kong},
+      year={2024},
+      eprint={2410.17891},
       archivePrefix={arXiv},
-      primaryClass={cs.CL}
+      primaryClass={cs.CL},
+      url={https://arxiv.org/abs/2410.17891}, 
 }
 ```
 
