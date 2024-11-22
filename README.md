@@ -20,6 +20,9 @@ Through systematic evaluation on language modeling, reasoning, and commonsense b
 The overview of adaptation process.
 </p>
 
+### ⌚️ Update 
+- 22 Nov 2024. Update evaluation scripts.
+
 ### 📖 Setup
 Basic environments:
 ```bash
@@ -146,7 +149,11 @@ adapter_name_or_path: output/llama2-ddm-gsm-v3/checkpoint-64000 # the path to sa
 > 📌 Note: If you skip the adapation training and choose to use our released checkpoint to do the finetuning, please specify `checkpoint_dir` to the huggingface cache directory to these checkpoints, or using huggingface cli to download checkpoints to a local directory: `huggingface-cli download model-name --local-dir /a-local-path/`.
 
 ### 📏 Evaluation
-- will update soon
+We build the zero-shot evaluation, please call the function in `main`. For example:
+```python
+eval_hellaswag(model, tokenizer, args)
+```
+We also open-source the implementation of baseline models [Plaid](https://github.com/igul222/plaid/tree/main) and [SEDD](https://github.com/louaaron/Score-Entropy-Discrete-Diffusion/tree/main).
 
 ### 🙇 Acknowledgements
 We sincerely appreciate the following people (works) for DiffuLLaMA:

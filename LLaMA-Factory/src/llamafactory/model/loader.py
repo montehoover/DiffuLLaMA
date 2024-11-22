@@ -243,7 +243,7 @@ def load_model(
             # print('='*30)
             # print(loaded)
             if loaded:
-                model.load_state_dict(loaded)
+                model.load_state_dict(loaded, strict=False)
             # model.to(torch.device('cuda'))
     # import pdb; pdb.set_trace();
     model = init_adapter(config, model, model_args, finetuning_args, is_trainable)
