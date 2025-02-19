@@ -36,7 +36,6 @@ lr_scheduler_type: cosine
 warmup_steps: 100
 bf16: true
 ddp_timeout: 180000000
-anneal_steps: 1
 max_grad_norm: 1.0
 
 ### eval

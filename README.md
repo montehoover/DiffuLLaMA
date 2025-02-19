@@ -21,6 +21,7 @@ The overview of adaptation process.
 </p>
 
 ### ⌚️ Update 
+- 19 Feb 2025. DiffuLLaMA has been accepted at ICLR2025! 🎉 Checkout our camera ready copy at [openreview](https://openreview.net/pdf?id=j1tSLYKwg8). We uploaded [LoRA adapater of DiffuLLaMA](https://huggingface.co/diffusionfamily/diffullama-gsm) finetuned on GSM8K-symbolic data.
 - 22 Nov 2024. Update evaluation scripts.
 
 ### 📖 Setup
@@ -164,14 +165,13 @@ We sincerely appreciate the following people (works) for DiffuLLaMA:
 
 ## Citation
 ```
-@misc{gong2024scalingdiffusionlm,
-      title={Scaling Diffusion Language Models via Adaptation from Autoregressive Models}, 
-      author={Shansan Gong and Shivam Agarwal and Yizhe Zhang and Jiacheng Ye and Lin Zheng and Mukai Li and Chenxin An and Peilin Zhao and Wei Bi and Jiawei Han and Hao Peng and Lingpeng Kong},
-      year={2024},
-      eprint={2410.17891},
-      archivePrefix={arXiv},
-      primaryClass={cs.CL},
-      url={https://arxiv.org/abs/2410.17891}, 
+@inproceedings{
+    gong2025scaling,
+    title={Scaling Diffusion Language Models via Adaptation from Autoregressive Models},
+    author={Shansan Gong and Shivam Agarwal and Yizhe Zhang and Jiacheng Ye and Lin Zheng and Mukai Li and Chenxin An and Peilin Zhao and Wei Bi and Jiawei Han and Hao Peng and Lingpeng Kong},
+    booktitle={The Thirteenth International Conference on Learning Representations},
+    year={2025},
+    url={https://openreview.net/forum?id=j1tSLYKwg8}
 }
 ```
 
