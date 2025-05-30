@@ -143,6 +143,7 @@ def load_tokenizer(model_args: "ModelArguments") -> "TokenizerModule":
             logger.warning("New tokens have been added, changed `resize_vocab` to True.")
         else:
             tokenizer.mask_token_id = 10541 # for diffu-gpt2-small
+            tokenizer.sep_token_id = 50155
             # EOS_TOKEN = 50256
             # PAD_TOKEN = 101
             # SEP_TOKEN_ID = 50155
