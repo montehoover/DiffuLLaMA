@@ -215,7 +215,7 @@ def main(args):
         
         t = (1 - sampling_eps) * torch.rand(local_input_ids.shape[0], device=local_input_ids.device) + sampling_eps
         sigma = t
-        dsigma = t
+        dsigma = torch.reciprocal(t)  # dsigma = 1 / t
         
         local_input_ids = transition(local_input_ids,sigma[:, None], maskable_mask=~src_mask, mask_token_id=mask_token_id)
         loss_log = None

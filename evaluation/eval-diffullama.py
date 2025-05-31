@@ -75,9 +75,6 @@ def eval_Lambada(model, tokenizer, args):
             if pred.strip() == line.split()[-1].strip():
                 cor += 1
             # print(total_cnt, cor/total_cnt)
-
-            if pred.strip() == line.split()[-1].strip():
-                cor += 1
     print('acc:', cor/total_cnt)
 
 import re

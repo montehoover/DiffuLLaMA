@@ -21,6 +21,7 @@ The overview of adaptation process.
 </p>
 
 ### ⌚️ Update 
+- May 2025. Minor updates for paper and code (bug fixed). Checkout the latest dLLM [Dream-7B](https://hkunlp.github.io/blog/2025/dream/) from our lab. 🎉
 - 19 Feb 2025. DiffuLLaMA has been accepted at ICLR2025! 🎉 Checkout our camera ready copy at [openreview](https://openreview.net/pdf?id=j1tSLYKwg8). We uploaded [LoRA adapater of DiffuLLaMA](https://huggingface.co/diffusionfamily/diffullama-gsm) finetuned on GSM8K-symbolic data.
 - 22 Nov 2024. Update evaluation scripts.
 
@@ -177,3 +178,10 @@ We sincerely appreciate the following people (works) for DiffuLLaMA:
 
 ## License
 - DiffuLLaMA & DiffuGPT is licensed under the Apache License 2.0. This means that it requires the preservation of copyright and license notices. 
+
+<p align="center" width="100%">
+<img src="assets/poster.png" alt="poster" style="width: 100%; min-width: 300px; display: block; margin: auto;">
+</p>
+<p align = "center">
+ICLR 2025 Poster
+</p>
