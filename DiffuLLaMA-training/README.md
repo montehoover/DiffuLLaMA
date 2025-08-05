@@ -1,3 +1,33 @@
+# Fork of https://github.com/HKUNLP/DiffuLLaMA for LLNL/Nexus
+
+## Quickstart
+
+1. Use CUDA 12.4. 
+- On Nexus:
+    ```
+    module load cuda/12.4.1
+    ```
+
+2. Use Python 3.10.
+    ```
+    conda create -n diffullama python=3.10
+    ```
+
+3. Use Pytorch 2.4.
+    ```
+    pip install torch==2.4.0 --index-url https://download.pytorch.org/whl/cu124
+    ```
+
+4. Install the rest of the dependencies.
+    ```
+    pip install -r requirements.txt
+    ```
+
+
+
+Original README:
+--------
+
 # Overview
 Training scripts for training large diffusion language models (e.g., Llama 7B).
 
