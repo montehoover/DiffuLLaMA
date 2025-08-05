@@ -1,4 +1,6 @@
-# Fork of https://github.com/HKUNLP/DiffuLLaMA for LLNL/Nexus
+# DiffuLLaMA
+
+Fork of https://github.com/HKUNLP/DiffuLLaMA for LLNL/Nexus.
 
 This repo contains two different training frameworks. The framework that scales to large pretraining is in [DiffuLLaMA-training/](./DiffuLLaMA-training/). The README there contains instructions specific to LLNL/Nexus.
 
