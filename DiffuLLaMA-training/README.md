@@ -1,4 +1,6 @@
-# Fork of https://github.com/HKUNLP/DiffuLLaMA for LLNL/Nexus
+# DiffuLLaMA-training
+
+Fork of https://github.com/HKUNLP/DiffuLLaMA for LLNL/Nexus
 
 ## Quickstart
 
@@ -6,6 +8,7 @@
 - On Nexus:
     ```
     module load cuda/12.4.1
+    module load gcc/11.2.0
     ```
 
 2. Use Python 3.10.
@@ -16,6 +19,15 @@
 3. Use Pytorch 2.4.
     ```
     pip install torch==2.4.0 --index-url https://download.pytorch.org/whl/cu124
+    ```
+
+4. Build Flash Attention v2.7 locally because the prebuilt wheels use a different version of glibc than we have available on Nexus (2.32 vs 2.28). Even with Ninja and 32 cores it takes 30 minutes. You need ~8GB of memory per worker.
+    ```
+    cd .. && git clone git@github.com:Dao-AILab/flash-attention.git && cd flash-attention
+    git checkout v2.7.4
+    export TORCH_CUDA_ARCH_LIST="8.6;9.0"   # A5000/A6000 + H100
+    pip install ninja
+    python setup.py install
     ```
 
 4. Install the rest of the dependencies.
